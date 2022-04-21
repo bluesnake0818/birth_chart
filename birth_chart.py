@@ -25,9 +25,15 @@ JI = ["RAT", "OXX", "TIG", "RAB", "DRA", "SNA", "HOR", "GOA", "MON", "ROO", "DOG
 year_gan = ''
 year_ji = ''
 
+year_gan_idx = 0
+year_ji_idx = 0
 
-def getYear (year):
+
+
+def getYear (year, month, date, hour):
   if(year % 60) == 0: 
+    year_gan_idx = 6
+    year_ji_idx = 8
     year_gan = GAN[6]
     year_ji = JI[8]
   elif(year % 60) == 1: 
@@ -208,6 +214,24 @@ def getYear (year):
     year_gan = GAN[5]
     year_ji = JI[7]
 
-  return [year_gan, year_ji]
+  year_gan_idx = GAN.index(year_gan)
+  year_ji_idx = JI.index(year_ji)
 
-print(getYear(1987))
+  # print(year_gan_idx)
+  # print(year_ji_idx)
+  if(month == 1): 
+    year_gan_idx -= 1
+    year_ji_idx -= 1
+
+  if(month == 2):
+    if(date <= 2):
+      year_gan_idx -= 1
+      year_ji_idx -= 1
+    if(date == 3):
+      if(hour < 23):
+        year_gan_idx -= 1
+        year_ji_idx -= 1
+
+  return [GAN[year_gan_idx], JI[year_ji_idx]]
+
+print(getYear(1988, 2, 3, 22))
