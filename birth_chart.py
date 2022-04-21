@@ -3,6 +3,11 @@ GAN = ["GAP", "EUL", "BYU", "JUN", "MUU", "KII", "KYU", "SHI", "YIM", "KYE"]
 JI = ["RAT", "OXX", "TIG", "RAB", "DRA", "SNA", "HOR", "GOA", "MON", "ROO", "DOG", "PIG"]
 
 
+
+
+
+
+
 # print('Enter your year (yy) of birth:')
 # year = input()
 # print('Hello, ' + year)
@@ -22,6 +27,7 @@ JI = ["RAT", "OXX", "TIG", "RAB", "DRA", "SNA", "HOR", "GOA", "MON", "ROO", "DOG
 # print('Enter your minute (mm) of birth:')
 # minute = input()
 
+
 year_gan = ''
 year_ji = ''
 
@@ -32,8 +38,6 @@ year_ji_idx = 0
 
 def getYear (year, month, date, hour):
   if(year % 60) == 0: 
-    year_gan_idx = 6
-    year_ji_idx = 8
     year_gan = GAN[6]
     year_ji = JI[8]
   elif(year % 60) == 1: 
